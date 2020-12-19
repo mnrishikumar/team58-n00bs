@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>LEADERBOARDS</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.71 js/bootstrap.min.js"></script>
+	</head>
+	<body>
+		<div class="container">
+			<div class="table-responsive"> 
+				<h1>LEADERBOARDS</h1> 
+				<br />	
+			
+				<table class="table table-bordered table-striped" id="leaderboards_table">
+				<tr>
+					<th>Rank</th>
+					<th>User Name</th>
+					<th>Points</th>
+					
+				</tr>
+				</table>
+			</div>
+		</div>
+		<script>
+			$(document).ready(function(){
+			$.getJSON("leaderboards.json", function(data){
+				var user_data = '';
+				$.each(data, function(key, value){
+				user_data += '<tr>';
+				user_data += '<td>' +value.lrank+ '</td>';
+				user_data += '<td>' +value.username+ '</td>';
+				user_data += '<td>' +value.points+ '</td>'; 
+				user_data += '</tr>';
+				});
+				$('#leaderboards_table') .append(user_data);
+			});
+		});
+		</script>
+		
+	</body>
+</html>
