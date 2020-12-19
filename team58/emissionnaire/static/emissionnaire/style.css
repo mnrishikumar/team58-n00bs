@@ -118,4 +118,8 @@ a:hover{
     width:100%;
     text-align: center;
 }
+.icons {
+    position: relative;
+    font-size: 30px;
+}
 
